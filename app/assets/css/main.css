@@ -1,2 +1,201 @@
 @import 'tailwindcss';
-@import '@nuxt/ui';
+
+html {
+    font-size: 14px;
+    font-family: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    line-height: normal;
+}
+
+body {
+    margin: 0px;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--ground-background);
+    font-weight: normal;
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-blend-mode: var(--glow-blend);
+    background-image: var(--glow-image);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto 20rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+::selection {
+    background-color: var(--selection-background);
+    color: var(--selection-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 1.5rem 0 1rem 0;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--high-contrast-text-color);
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+h1 {
+    font-size: 1.75rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.875rem;
+}
+
+p {
+    line-height: 1.625;
+    margin: 0 0 1rem 0;
+}
+
+.p-toast.p-toast-top-right,
+.p-toast.p-toast-top-left {
+    top: 7rem;
+}
+
+button {
+    font-family: inherit;
+    font-feature-settings: inherit;
+}
+
+*,
+::before,
+::after {
+    border-width: 0;
+    border-style: solid;
+}
+
+textarea {
+    resize: none;
+}
+
+/* 滚动条设置 */
+/* ::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db60;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a1a1aa80; 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+} */
+/* 全局隐藏滚动条 */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollable-content {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollable-content::-webkit-scrollbar {
+    display: none;
+}
+
+:root {
+    --primary-text-color: var(--p-primary-600);
+    --primary-color: var(--p-primary-color);
+    --primary-contrast-color: var(--p-primary-contrast-color);
+    --primary-hover-color: var(--p-primary-hover-color);
+    --text-color: var(--p-surface-700);
+    --text-secondary-color: var(--p-surface-500);
+    --glow-image: url(./pattern.png);
+    --glow-blend: hard-light, multiply;
+    --topbar-sticky-background: rgba(255, 255, 255, 0.7);
+    --mobile-menu-background: #ffffff;
+    --card-border: 1px solid var(--p-surface-200);
+    --card-background: #ffffff;
+    --border-color: var(--p-surface-200);
+    --ground-background: var(--p-surface-50);
+    --overlay-background: #ffffff;
+    --hover-background: var(--p-surface-100);
+    --code-background: var(--p-surface-950);
+    --high-contrast-text-color: var(--p-surface-900);
+    --hover-border-color: var(--p-surface-400);
+    --mark-background: var(--p-surface-200);
+    --mark-text-color: var(--p-surface-700);
+    --selection-background: var(--p-surface-200);
+    --selection-text-color: var(--p-surface-950);
+    --code-button-text-color: var(--p-surface-300);
+    --docsearch-mask-background: var(--p-mask-background);
+    --logo-color: var(--text-secondary-color);
+}
+:root.p-dark {
+    --primary-text-color: var(--p-primary-400);
+    --primary-color: var(--p-primary-color);
+    --primary-contrast-color: var(--p-primary-contrast-color);
+    --primary-hover-color: var(--p-primary-hover-color);
+    --text-color: var(--p-surface-0);
+    --text-secondary-color: var(--p-surface-400);
+    --glow-image: url(./pattern.png),
+        radial-gradient(50% 50% at center -25px, var(--p-primary-color) 0%, #000000 100%);
+    --glow-blend: hard-light, color-dodge;
+    --topbar-sticky-background: rgba(0, 0, 0, 0.3);
+    --mobile-menu-background: rgba(0, 0, 0, 0.3);
+    --card-border: 1px solid transparent;
+    --card-background: var(--p-surface-900);
+    --border-color: var(--p-surface-700);
+    --ground-background: var(--p-surface-950);
+    --overlay-background: var(--p-surface-900);
+    --hover-background: var(--p-surface-800);
+    --code-background: var(--p-surface-900);
+    --high-contrast-text-color: var(--p-surface-0);
+    --hover-border-color: var(--p-surface-500);
+    --mark-background: var(--p-surface-700);
+    --mark-text-color: var(--p-surface-200);
+    --selection-background: var(--p-surface-700);
+    --selection-text-color: var(--p-surface-0);
+    --code-button-text-color: var(--p-surface-300);
+    --docsearch-mask-background: var(--p-mask-background);
+    --logo-color: var(--text-secondary-color);
+}

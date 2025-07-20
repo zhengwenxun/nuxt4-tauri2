@@ -1,5 +1,7 @@
 <template>
-    <div>tauri</div>
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
 <script setup>
     const isDev = process.env.NODE_ENV === 'development';
